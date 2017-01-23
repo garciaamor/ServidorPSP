@@ -18,9 +18,9 @@ public class Servidor extends Thread{
         public static int CONT=0;
         
     public void run(){
-        
-        while (CONT<9){
         CONT++;
+        while (CONT<3){
+        
         try{
             System.out.println("Creando socket servidor");
 
