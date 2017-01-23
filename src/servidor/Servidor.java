@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 
 public class Servidor extends Thread{
 
+    //Hacer en casa
      int num1, num2, total = 0;
         int result = 0;
         char signo = 0;
@@ -18,7 +19,7 @@ public class Servidor extends Thread{
         
     public void run(){
         
-        while (CONT<4){
+        while (CONT<9){
         CONT++;
         try{
             System.out.println("Creando socket servidor");
@@ -93,6 +94,7 @@ public class Servidor extends Thread{
             }catch (IOException e) {
             }
     }
+        
     }
     public static void main(String[] args) {
         
