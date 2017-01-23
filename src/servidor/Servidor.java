@@ -36,14 +36,12 @@ public class Servidor {
 
             InputStream is=newSocket.getInputStream();
             OutputStream os=newSocket.getOutputStream();
-
-            /*byte[]mensaje=new byte[25];        
-            is.read(mensaje);*/
             
             num1=is.read();
-            num2=is.read();
-            
+            num2=is.read();            
             result = is.read();
+            
+            
         if (result == 1) {
 
             signo = '+';
@@ -69,10 +67,11 @@ public class Servidor {
             total = (num1 / num2);
         }
 
-            System.out.println(num1);
-            System.out.println(num2);
+            System.out.println("La operacion a realizar es: "+num1+signo+num2);      
+            System.out.println("RESULTADO "+total);
             
-
+            os.write(total);
+            os.flush();
             System.out.println("Cerrando el nuevo socket");
 
             newSocket.close();
