@@ -66,6 +66,8 @@ public class Servidor {
             signo = '/';
             total = (num1 / num2);
         }
+            
+            
 
             System.out.println("La operacion a realizar es: "+num1+signo+num2);      
             System.out.println("RESULTADO "+total);
