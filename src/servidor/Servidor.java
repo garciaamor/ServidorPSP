@@ -10,13 +10,12 @@ import java.net.ServerSocket;
 
 public class Servidor {
 
-    
-    public static void main(String[] args) {
-        
-        int num1, num2, total = 0;
+     int num1, num2, total = 0;
         int result = 0;
         char signo = 0;
-       try{
+        
+    public void run(){
+        try{
             System.out.println("Creando socket servidor");
 
             ServerSocket serverSocket=new ServerSocket();
@@ -86,5 +85,12 @@ public class Servidor {
 
             }catch (IOException e) {
             }
+    }
+    
+    public static void main(String[] args) {
+        
+       
+        
+       
     }
 }
