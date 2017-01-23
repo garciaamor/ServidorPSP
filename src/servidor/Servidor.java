@@ -8,29 +8,36 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.ServerSocket;
 
-public class Servidor {
+public class Servidor extends Thread{
 
      int num1, num2, total = 0;
         int result = 0;
         char signo = 0;
+        static int puerto=5555;
+        public static int CONT=0;
         
     public void run(){
+        
+        while (CONT<4){
+        CONT++;
         try{
             System.out.println("Creando socket servidor");
 
             ServerSocket serverSocket=new ServerSocket();
             
+            
             System.out.println("Realizando el bind");
 
-            InetSocketAddress addr=new InetSocketAddress("localhost",5555);
+            InetSocketAddress addr=new InetSocketAddress("localhost",puerto);
             serverSocket.bind(addr);
 
             System.out.println("Aceptando conexiones");
             
-            
-            
+                        
             Socket newSocket= serverSocket.accept();
-
+            puerto++;
+            new Servidor().start();
+            
             System.out.println("Conexion recibida");
 
             InputStream is=newSocket.getInputStream();
@@ -70,7 +77,7 @@ public class Servidor {
 
             System.out.println("La operacion a realizar es: "+num1+signo+num2);      
             System.out.println("RESULTADO "+total);
-            
+            System.out.println("CONTADOR "+CONT);
             os.write(total);
             os.flush();
             System.out.println("Cerrando el nuevo socket");
@@ -86,10 +93,10 @@ public class Servidor {
             }catch (IOException e) {
             }
     }
-    
+    }
     public static void main(String[] args) {
         
-       
+       new Servidor().start();
         
        
     }
